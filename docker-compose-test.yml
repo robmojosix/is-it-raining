@@ -1,0 +1,11 @@
+version: '2'
+services:
+  postgres:
+    image: "node:8"
+  test:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    command: 'true'
