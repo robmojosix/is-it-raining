@@ -48,6 +48,10 @@ jobs:
           fingerprints:
             - "57:9a:2a:f2:b0:cc:79:6c:87:93:5f:d5:14:31:17:f9"
       - run:
+        name: Fix host authenticity for 50.19.85.154
+        command: |
+          ssh-keyscan 50.19.85.154 >> ~/.ssh/known_hosts
+      - run:
           name: Run Setup Script
           command: bash .circleci/setup-heroku.sh
       - run:
