@@ -56,7 +56,7 @@ jobs:
             heroku git:remote -a is-it-raining-deploy
             git push --force git@heroku.com:is-it-raining-deploy.git HEAD:refs/heads/master
             heroku run python manage.py deploy
-            heroku restart
+            heroku restart -y
 workflows:
   version: 2
   build-deploy:
