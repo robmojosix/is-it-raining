@@ -44,9 +44,9 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - add_ssh_keys:  # add key from CircleCI account based on fingerprint
-          fingerprints:
-            - "57:9a:2a:f2:b0:cc:79:6c:87:93:5f:d5:14:31:17:f9"
+      # - add_ssh_keys:  # add key from CircleCI account based on fingerprint
+      #     fingerprints:
+      #       - "57:9a:2a:f2:b0:cc:79:6c:87:93:5f:d5:14:31:17:f9"
       - run:
           name: Run Setup Script
           command: bash .circleci/setup-heroku.sh
