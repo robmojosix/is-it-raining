@@ -32,9 +32,6 @@ jobs:
       # run tests!
       - run: npm test
   deploy-job:
-    docker:
-      - image: my-image
-    working_directory: /tmp/my-project
     steps:
       - checkout
       - add_ssh_keys:  # add key from CircleCI account based on fingerprint
