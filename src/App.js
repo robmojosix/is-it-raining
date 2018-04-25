@@ -5,6 +5,8 @@ import './App.css';
 class App extends Component {
   render() {
 
+    console.log('hostname', window.top.location.hostname);
+
     document.domain = `${window.top.location.hostname}`;
 
     const postMessage = () => {
