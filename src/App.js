@@ -5,7 +5,7 @@ import './App.css';
 class App extends Component {
   render() {
     const postMessage = () => {
-      window.postMessage("Yo", "https://is-it-raining-deploy.herokuapp.com");
+      top.postMessage("Yo", "http://localhost");
     };
 
     return (
