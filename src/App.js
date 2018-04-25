@@ -5,7 +5,7 @@ import './App.css';
 class App extends Component {
   render() {
 
-    document.domain = `${window.location.protocol}${window.location.hostname}${window.location.port ? ':'+window.location.port : ''}`;
+    document.domain = `${window.top.location.hostname}`;
 
     const postMessage = () => {
       window.top.postMessage("Yo", "http://localhost:3000");
