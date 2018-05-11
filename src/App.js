@@ -10,11 +10,13 @@ class App extends Component {
       window.top.postMessage("Yo", "http://localhost:3000");
     };
 
+    window.onmessage = function(e){
+      console.log('*******', e);
+    };
+
     return (
       <div className="App">
-        <h1>IS IT RAINING?</h1>
-        <h1>MAYBE?</h1>
-        <button onClick={ postMessage }>CLICK ME 3</button>
+        <button onClick={ postMessage }>EXPORT</button>
       </div>
     );
   }
