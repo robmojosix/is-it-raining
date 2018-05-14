@@ -19,10 +19,11 @@ class App extends Component {
       function(event) {
         var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
         if (origin !== "http://localhost:3000") {
-          console.log("Wrong domain");
-          return;
+          document.getElementsByClassName(".App").innerHTML = "falied";
         }
-        console.log("event.data", event.data);
+        document.getElementsByClassName(".App").innerHTML = JSON.stringify(
+          event
+        );
       },
       false
     );
