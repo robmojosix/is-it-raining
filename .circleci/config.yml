@@ -59,8 +59,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm test
-<<<<<<< HEAD
-=======
   deploy-job:
     docker:
       # specify the version you desire here
@@ -98,4 +96,3 @@ workflows:
           filters:
             branches:
               only: master
->>>>>>> 0ee10558e06961037d66ef8f56f7a6d34a87f2e2
