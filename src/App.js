@@ -13,11 +13,12 @@ class App extends Component {
     this.listenForData = this.listenForData.bind(this);
   }
 
-  listenForData(event) {
-    console.log(event);
-    this.setState({
-      data: JSON.stringify(event.data)
-    });
+  listenForData(message) {
+    if (message.data.from === "monteux") {
+      this.setState({
+        data: JSON.stringify(message.data.payload)
+      });
+    }
   }
 
   componentDidMount() {
@@ -27,7 +28,7 @@ class App extends Component {
     // }
     window.addEventListener(
       "message",
-      event => this.listenForData(event),
+      message => this.listenForData(message),
       false
     );
   }
