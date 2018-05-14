@@ -3,36 +3,37 @@ import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
-  render() {
-    // document.domain = 'localhost';
+  constructor() {
+    super();
 
-    // const postMessage = () => {
-    //   window.top.postMessage("Yo", "http://localhost:3000");
-    // };
+    this.state = {
+      data: "initialised"
+    };
 
-    // window.onmessage = function(e){
-    //   console.log('*******', e);
-    // };
+    this.listenForData = this.listenForData.bind(this);
+  }
 
+  listenForData(event) {
+    console.log(event);
+    this.setState({
+      data: JSON.stringify(event.data)
+    });
+  }
+
+  componentDidMount() {
+    // var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
+    // if (origin !== "http://localhost:3000") {
+    //   document.getElementsByClassName(".App").innerHTML = "falied";
+    // }
     window.addEventListener(
       "message",
-      function(event) {
-        var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
-        if (origin !== "http://localhost:3000") {
-          document.getElementsByClassName(".App").innerHTML = "falied";
-        }
-        document.getElementsByClassName(".App").innerHTML = JSON.stringify(
-          event
-        );
-      },
+      event => this.listenForData(event),
       false
     );
+  }
 
-    return (
-      <div className="App">
-        <button onClick={postMessage}>EXPORT</button>
-      </div>
-    );
+  render() {
+    return <div className="App">{this.state.data}</div>;
   }
 }
 
